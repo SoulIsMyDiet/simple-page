@@ -1,5 +1,5 @@
 import reactImg from './assets/react-core-concepts.png';
-import component from './assets/components.png';
+import {CORE_CONCEPTS} from './data.js';
 
 const keyWordExplainingReact = ['Nice', 'Innovative', 'Great'];
 const reactKeyWordLength = keyWordExplainingReact.length;
@@ -23,7 +23,7 @@ function Header() {
 function ReactComponnent(props){
     return (
         <li>
-            <img src={props.img} alt={props.alt}/>
+            <img src={props.image} alt={props.alt}/>
             <div>
                 <h3>{props.title}</h3>
                 <p>{props.description}</p>
@@ -42,11 +42,14 @@ function App() {
                   <section id="core-concepts">
                       <h2>Core concepts</h2>
                       <ul>
-                          <ReactComponnent title='Component' description='some description'
-                          img={component} alt='component'/>
-                          <ReactComponnent/>
-                          <ReactComponnent/>
-                          <ReactComponnent/>
+                          <ReactComponnent
+                              title={CORE_CONCEPTS[0].title}
+                              description={CORE_CONCEPTS[0].description}
+                              image={CORE_CONCEPTS[0].image}
+                              />
+                          <ReactComponnent {...CORE_CONCEPTS[1]}/>
+                          <ReactComponnent {...CORE_CONCEPTS[2]}/>
+                          <ReactComponnent {...CORE_CONCEPTS[3]}/>
                       </ul>
                   </section>
               </div>
