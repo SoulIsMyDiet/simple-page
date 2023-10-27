@@ -75,6 +75,7 @@ main h2 {
   gap: 2rem;
   flex-wrap: wrap;
   justify-content: center;
+  color: crimson;
 }
 
 #core-concepts li {
