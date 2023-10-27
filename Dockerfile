@@ -5,14 +5,16 @@ FROM node:lts
 WORKDIR /app
 
 # Skopiuj plik package.json i package-lock.json do katalogu /app
-COPY . .
+COPY package*.json ./
 
 # Zainstaluj zależności projektu
 RUN npm install
 
+# Skopiuj resztę plików projektu
+COPY . .
 
 # Port, na którym działa serwer React
-EXPOSE 3000
+EXPOSE 5173
 
-# Uruchom serwer deweloperski React
+# Uruchom serwer React
 CMD ["npm", "run", "dev"]
