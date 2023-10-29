@@ -45,10 +45,10 @@ function App() {
                   </section>
                   <section id='examples'>
                       <menu>
-                          <TabButton onClick={() => clickHandler('components')}>Component</TabButton>
-                          <TabButton onClick={() => clickHandler('jsx')}>Jsx</TabButton>
-                          <TabButton onClick={() => clickHandler('props')}>Props</TabButton>
-                          <TabButton onClick={() => clickHandler('state')}>State</TabButton>
+                          <TabButton isSelected={conceptState === 'components'} onClick={() => clickHandler('components')}>Component</TabButton>
+                          <TabButton isSelected={conceptState === 'jsx'} onClick={() => clickHandler('jsx')}>Jsx</TabButton>
+                          <TabButton isSelected={conceptState === 'props'} onClick={() => clickHandler('props')}>Props</TabButton>
+                          <TabButton isSelected={conceptState === 'state'} onClick={() => clickHandler('state')}>State</TabButton>
                       </menu>
                       {tabContent}
                   </section>
