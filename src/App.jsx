@@ -1,12 +1,28 @@
-import {CORE_CONCEPTS} from './data.js';
+import {CORE_CONCEPTS, EXAMPLES} from './data.js';
 import {Header} from "./components/Header";
 import {CoreConcept} from "./components/CoreConcept";
 import TabButton from"./components/TabButton";
+import { useState } from 'react';
 
 function App() {
+
+    const [conceptState, setConceptState] = useState();
     function clickHandler(clickedButton){
-        console.log(clickedButton)
+        setConceptState(clickedButton);
     }
+    let tabContent = <p>Choose tab!</p>;
+    if(conceptState){
+        tabContent = (
+            <div id='tab-content'>
+            <h3>{EXAMPLES[conceptState].title}</h3>
+        <p>{EXAMPLES[conceptState].description}</p>
+    <code>
+        {EXAMPLES[conceptState].code}
+    </code>
+            </div>
+    );
+    }
+
 
   return (
       <div>
@@ -29,11 +45,12 @@ function App() {
                   </section>
                   <section id='examples'>
                       <menu>
-                          <TabButton onClick={() => clickHandler('Component')}>Component</TabButton>
-                          <TabButton onClick={() => clickHandler('Jsx')}>Jsx</TabButton>
-                          <TabButton onClick={() => clickHandler('Props')}>Props</TabButton>
-                          <TabButton onClick={() => clickHandler('State')}>State</TabButton>
+                          <TabButton onClick={() => clickHandler('components')}>Component</TabButton>
+                          <TabButton onClick={() => clickHandler('jsx')}>Jsx</TabButton>
+                          <TabButton onClick={() => clickHandler('props')}>Props</TabButton>
+                          <TabButton onClick={() => clickHandler('state')}>State</TabButton>
                       </menu>
+                      {tabContent}
                   </section>
               </div>
           </main>
