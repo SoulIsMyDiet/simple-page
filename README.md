@@ -1,1 +1,1 @@
-# simple-page
+to build project type: `docker-compose up` in main directory of application. The project should be able at: http://localhost:5173/
