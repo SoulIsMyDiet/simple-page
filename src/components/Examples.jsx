@@ -2,6 +2,7 @@ import { Example } from "./Example";
 import { EXAMPLES } from "../data";
 import { useState } from 'react';
 import Section from "./Section";
+import Tabs from "./Tabs";
 
 export default function Examples() {
     const [conceptState, setConceptState] = useState();
@@ -24,13 +25,14 @@ export default function Examples() {
     }
 
     return <Section title='Examples' id='examples'>
-        <menu>
-            <Example isSelected={conceptState === 'components'}
-                     onClick={() => clickHandler('components')}>Component</Example>
+        <Tabs ButtonsContainer='menu'
+            buttons={<><Example isSelected={conceptState === 'components'}
+                                  onClick={() => clickHandler('components')}>Component</Example>
             <Example isSelected={conceptState === 'jsx'} onClick={() => clickHandler('jsx')}>Jsx</Example>
             <Example isSelected={conceptState === 'props'} onClick={() => clickHandler('props')}>Props</Example>
-            <Example isSelected={conceptState === 'state'} onClick={() => clickHandler('state')}>State</Example>
-        </menu>
-        {tabContent}
+            <Example isSelected={conceptState === 'state'} onClick={() => clickHandler('state')}>State</Example></>}>
+            {tabContent}
+        </Tabs>
+
     </Section>
 }
