@@ -1,6 +1,7 @@
 import { Example } from "./Example";
 import { EXAMPLES } from "../data";
 import { useState } from 'react';
+import Section from "./Section";
 
 export default function Examples() {
     const [conceptState, setConceptState] = useState();
@@ -22,7 +23,7 @@ export default function Examples() {
         );
     }
 
-    return <section id='examples'>
+    return <Section title='Examples' id='examples'>
         <menu>
             <Example isSelected={conceptState === 'components'}
                      onClick={() => clickHandler('components')}>Component</Example>
@@ -31,5 +32,5 @@ export default function Examples() {
             <Example isSelected={conceptState === 'state'} onClick={() => clickHandler('state')}>State</Example>
         </menu>
         {tabContent}
-    </section>
+    </Section>
 }
